@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        h2{
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="bodinho" id="bodinho">
+    <audio id="myAudio" controls autoplay>
+        <source id="musica" src="" type="audio/mpeg">
+    </audio>
+    <header>
+        <div id="nameAnimation">
+            <h2 id="plataformagamer">Plataforma Gamer</h2>
+        </div>
+
+        <div class="n">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-custom mx-auto w-100">
+                <a class="navbar-brand custom-brand" href="#">NAVBAR</a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link custom-link" href="home.html">HOME <span class="sr-only">(Página
+                                atual)</span></a>
+                        <a class="nav-item nav-link custom-link" href="jogodaforca.html">JOGO DA FORCA</a>
+                        <a class="nav-item nav-link custom-link" href="indexvelha.html">JOGO DA VELHA</a>
+                        <a class="nav-item nav-link custom-link" href="trocadepalavras.html">TROCA DE PALAVRAS</a>
+                        <a class="nav-item nav-link custom-link" href="index.html">BLOCK PARTY</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <main>
+            <h2 id="skins">SKINS</h2>
+
+            <div class="telaDeSelecao" id="telaDeSelecao">
+                <div class="personagens">
+                    <img src="imagens/mewto-removebg-preview.png" alt="" id="img1" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/mulherofodona.png" alt="" id="img2" class="skin" onclick="personagem(this.src)">
+                    <img src="imagens/caraleatorio-removebg-preview.png" alt="" id="img3" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/sona-removebg-preview.png" alt="" id="img4" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/gato-removebg-preview.png" alt="" id="img5" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/fofa-removebg-preview.png" alt="" id="img6" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/starvssforacasadomal-removebg-preview.png" alt="" id="img7" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/kindred-removebg-preview.png" alt="" id="img8" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/Thresh-removebg-preview.png" alt="" id="img9" class="skin"
+                        onclick="personagem(this.src)">
+
+                    <img src="imagens/sla-removebg-preview.png" alt="" id="img10" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/marco-removebg-preview.png" alt="" id="img11" class="skin"
+                        onclick="personagem(this.src)">
+                    <img src="imagens/steven-removebg-preview.png" alt="" id="img12" class="skin"
+                        onclick="personagem(this.src)">
+
+
+
+
+
+                </div>
+
+                <div><button id="confirmar" class="glow-on-hover" onclick="confirmou();">Confirmar</button></div>
+            </div>
+
+
+
+            <div class="cores">
+                <div>
+                    <h2 id="contadordafase" class="tempo"></h2>
+                </div>
+                <div class="coresnome">
+                    <div id="inputColor"></div>
+                    <div class="cor" id="cor">AAAAA</div>
+                </div>
+            </div>
+            <center>
+                <canvas id="idCanvas" width="500" height="500"></canvas>
+            </center>
+            <div id="pontos"></div>
+
+        </main>
+        <footer>
+            <p style="color:white">TODOS OS DIREITOS RESERVADOS A RAI</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <script>
+            var audio1 = document.getElementById('myAudio')
+
+
+
+
+
+            var telaDeSelecao = document.getElementById('telaDeSelecao')
+            var inputColor = document.getElementById('inputColor')
+            var botao = document.getElementById('confirmar')
+            var imagem1 = document.getElementById('img1')
+            var imagem2 = document.getElementById('img2')
+            var imagem3 = document.getElementById('img3')
+            var imagem4 = document.getElementById('img4')
+            var imagem5 = document.getElementById('img5')
+            var imagem6 = document.getElementById('img6')
+            var imagem7 = document.getElementById('img7')
+            var imagem8 = document.getElementById('img8')
+            var imagem9 = document.getElementById('img9')
+            var imagem10 = document.getElementById('img10')
+            var imagem11 = document.getElementById('img11')
+            var imagem12 = document.getElementById('img12')
+            var elementoSelecionado = null;
+            var canvas = document.getElementById('idCanvas');
+            var cpx = canvas.getContext('2d');
+            var tamanhoMin = 50;
+            var tamanhoMax = 50;
+            var posicaoXmin = 0;
+            var posicaoXMax = 450;
+            var posicaoYMin = 0;
+            var posicaoYMax = 450;
+            var idCounter = 0;
+            var exibecor = document.getElementById('cor')
+            var canvaswidth = canvas.width;
+            var canvasheight = canvas.height;
+            // console.log("Largura " + canvaswidth);
+            // console.log("Altura " + canvasheight);
+
+            var arrayImagens = [imagem1, imagem2, imagem3, imagem4, imagem5, imagem6, imagem7, imagem8, imagem9, imagem10, imagem11, imagem12]
+
+            for (let x = 0; x < arrayImagens.length; x++) {
+                arrayImagens[x].addEventListener('click', function () {
+                    if (elementoSelecionado !== null) {
+                        elementoSelecionado.style.backgroundColor = "black";
+                    }
+                    elementoSelecionado = arrayImagens[x];
+                    elementoSelecionado.style.backgroundColor = "red";
+                });
+            }
+
+            var cores = ["PURPLE", "BLACK", "RED", "YELLOW"]
+            var cores2 = ["PURPLE", "DARKSLATEGRAY", "BLACK", "PINK", "RED", "GREENYELLOW", "DARKSLATEBLUE", "CRIMSON"];
+            var cores3 = ["AQUA", "GOLD", "LIME", "SALMON", "BLUEVIOLET", "CORNFLOWERBLUE", "ORANGERED", "MEDIUMSEAGREEN", "DEEPPINK", "MEDIUMSLATEBLUE"];
+            var cores4 = ["#6A5ACD", "#836FFF", "#FF0202", "#5b4fad", "#483D8B"];
+            var cor = 0;
+            var cors2 = 0;
+            var cors3 = 0;
+            var cors4 = 0;
+            var contador3 = 0;
+            var contadorr = 0;
+
+
+            telaDeSelecao.style.display = "flex"
+
+            canvas.style.display = "none"
+
+
+
+
+            function criaPlayer() {
+                this.imgdoboneco = new Image();
+                this.imgdoboneco.src = personagem;
+
+                var self = this;
+                this.posx = 0;
+                this.posy = 0;
+                this.width = 50;
+                this.height = 50;
+
+
+
+                this.draw = function () {
+                    cpx.drawImage(this.imgdoboneco, this.posx, this.posy, this.width, this.height)
+                }
+
+
+
+                this.move = function () {
+                    document.addEventListener('keydown', function (tecla) {
+
+                        // if (self!=true) return;
+                        if (!player) {
+                            document.removeEventListener('keydown', move)
+                        }
+
+
+                        if (tecla.key == "d" && player.posx <= canvaswidth - 50) {
+
+
+                            self.posx = self.posx + 10;
+                            cpx.drawImage(self.imgdoboneco, self.posx, self.posy, self.width, self.height)
+
+                        }
+
+                        if (tecla.key == "a" && player.posx >= 0) {
+
+                            self.posx = self.posx - 10;
+                            cpx.drawImage(self.imgdoboneco, self.posx, self.posy, self.width, self.height)
+                        }
+
+                        if (tecla.key == "w" && player.posy >= 0) {
+
+
+                            self.posy = self.posy - 10;
+                            cpx.drawImage(self.imgdoboneco, self.posx, self.posy, self.width, self.height)
+                        }
+
+                        if (tecla.key == "s" && player.posy <= canvasheight - 50) {
+
+
+                            self.posy = self.posy + 10;
+                            cpx.drawImage(self.imgdoboneco, self.posx, self.posy, self.width, self.height)
+                        }
+
+                    })
+                }
+
+
+            }
+
+
+            var player = new criaPlayer();
+
+
+            function personagem(imagem) {
+                player.imgdoboneco.src = imagem;
+
+
+            }
+
+
+
+
+
+            player.imgdoboneco.onload = function () {
+
+                player.draw();
+
+
+                player.move();
+
+                // console.log(player.posx)
+                // console.log(player.posy)
+            }
+
+
+
+
+            var trueorfalse = false;
+            var trueorfalse2 = false;
+            var trueorfalse3 = false;
+            var trueorfalse4 = false;
+            var emcima = false
+            var emcima2 = false;
+            var emcima3 = false;
+            var emcima4 = false;
+            function primeiroMapa() {
+
+                var dividewithem2 = canvaswidth / 2;
+                var divideheight2 = canvasheight / 2;
+                // console.log(dividewithem2);
+
+                var primeiroconjunto = [0, 0, dividewithem2, divideheight2]
+                var segundoconjunto = [250, 0, dividewithem2, divideheight2]
+                var terceiroconjunto = [250, 250, dividewithem2, divideheight2]
+                var quartoconjunto = [0, 250, dividewithem2, divideheight2]
+                var cor1 = "PURPLE"
+                cpx.fillStyle = cor1;
+                cpx.fillRect(primeiroconjunto[0], primeiroconjunto[1], primeiroconjunto[2], primeiroconjunto[3]);
+
+
+                var cor2 = "BLACK"
+                cpx.fillStyle = cor2;
+                cpx.fillRect(segundoconjunto[0], segundoconjunto[1], segundoconjunto[2], segundoconjunto[3]);
+
+                var cor3 = "RED"
+                cpx.fillStyle = cor3;
+
+                cpx.fillRect(terceiroconjunto[0], terceiroconjunto[1], terceiroconjunto[2], terceiroconjunto[3]);
+                var cor4 = "YELLOW"
+                cpx.fillStyle = cor4;
+                cpx.fillRect(quartoconjunto[0], quartoconjunto[1], quartoconjunto[2], quartoconjunto[3]);
+
+                if (player) {
+                    player.draw();
+
+                }
+
+                // console.log(player.posx)
+                // console.log(player.posy)
+
+                var todososconjuntos = [[cor1, primeiroconjunto], [cor2, segundoconjunto], [cor3, terceiroconjunto], [cor4, quartoconjunto]];
+                var armazenaindicedoarray = []
+                var array = []
+                var tamanho;
+
+                if (player) {
+                    for (let x = 0; x < todososconjuntos.length; x++) {
+                        // console.log(todososconjuntos[x])
+                        // for(let y=0;y<todososconjuntos[x].length;y++){
+                        // console.log(todososconjuntos[x][0])
+
+                        if (todososconjuntos[x][0] == cores[cor]) {
+                            armazenaindicedoarray.push(todososconjuntos[x])
+
+                            console.log("Cor encontrada");
+
+
+                            // break; // Interrompe o loop interno
+                        }
+                        for (let h = 0; h < armazenaindicedoarray.length; h++) {
+                            // console.log(armazenaindicedoarray[h][1])
+                            tamanho = armazenaindicedoarray[h][1];
+                            for (let i = 0; i < tamanho.length; i++) {
+                                /*console.log(tamanho[0])
+                                console.log(tamanho[1])
+                                console.log(tamanho[2])
+                                console.log(tamanho[3])*/
+                                if (player.posx >= tamanho[0] &&
+                                    player.posx <= tamanho[0] + tamanho[2] &&
+                                    player.posy >= tamanho[1] &&
+                                    player.posy <= tamanho[1] + tamanho[3]) {
+                                    //   trueorfalse = true;
+                                    console.log("Você está em cima")
+                                    emcima = true
+                                } else {
+                                    console.log("Pise no bloco correto")
+                                    emcima = false
+                                }
+                                //  break;
+                            }
+                            // array.push(armazenaindicedoarray[h][1])
+                        }
+
+
+
+
+                    }
+                }
+
+            }
+
+            function segundoMapa() {
+
+
+                var dividewithem2 = canvaswidth / 2;
+                var divideheight2 = canvasheight / 2;
+
+                var dividewidthem4 = dividewithem2 / 2;
+                var divideheight4 = divideheight2 / 2;
+
+                // console.log("Altura " + dividewidthem4)
+                // console.log("Largura " + divideheight4)
+
+                var primeiroconjunto = [0, 0, dividewithem2, divideheight4]
+                var segundoconjunto = [0, 125, dividewithem2, divideheight4]
+                var terceiroconjunto = [250, 0, dividewithem2, divideheight4]
+                var quartoconjunto = [250, 125, dividewithem2, divideheight4]
+                var quintoconjunto = [0, 250, dividewithem2, divideheight4]
+                var sextoconjunto = [0, 375, dividewithem2, divideheight4]
+                var setimoconjunto = [250, 250, dividewithem2, divideheight4]
+                var oitavoconjunto = [250, 375, dividewithem2, divideheight4]
+
+                var cor1 = "PURPLE"
+                cpx.fillStyle = cor1;
+                cpx.fillRect(primeiroconjunto[0], primeiroconjunto[1], primeiroconjunto[2], primeiroconjunto[3]);
+
+                var cor2 = "DARKSLATEGRAY"
+                cpx.fillStyle = cor2;
+                cpx.fillRect(segundoconjunto[0], segundoconjunto[1], segundoconjunto[2], segundoconjunto[3]);
+
+                var cor3 = "BLACK"
+                cpx.fillStyle = cor3;
+                cpx.fillRect(terceiroconjunto[0], terceiroconjunto[1], terceiroconjunto[2], terceiroconjunto[3]);
+
+                var cor4 = "PINK";
+                cpx.fillStyle = cor4;
+                cpx.fillRect(quartoconjunto[0], quartoconjunto[1], quartoconjunto[2], quartoconjunto[3]);
+
+
+
+                var cor5 = "RED"
+                cpx.fillStyle = cor5;
+                cpx.fillRect(quintoconjunto[0], quintoconjunto[1], quintoconjunto[2], quintoconjunto[3]);
+
+                var cor6 = "GREENYELLOW"
+                cpx.fillStyle = cor6;
+                cpx.fillRect(sextoconjunto[0], sextoconjunto[1], sextoconjunto[2], sextoconjunto[3]);
+
+
+                var cor7 = "DARKSLATEBLUE"
+                cpx.fillStyle = cor7;
+                cpx.fillRect(setimoconjunto[0], setimoconjunto[1], setimoconjunto[2], setimoconjunto[3]);
+
+                var cor8 = "CRIMSON"
+                cpx.fillStyle = cor8;
+                cpx.fillRect(oitavoconjunto[0], oitavoconjunto[1], oitavoconjunto[2], oitavoconjunto[3]);
+
+                // cpx.fillStyle = "yellow";
+                // cpx.fillRect(0, 250, dividewithem2, divideheight2);
+                if (player) {
+                    player.draw();
+                }
+                // console.log(player.posx)
+                // console.log(player.posy)
+
+                var todososconjuntos = [[cor1, primeiroconjunto], [cor2, segundoconjunto], [cor3, terceiroconjunto], [cor4, quartoconjunto], [cor5, quintoconjunto], [cor6, sextoconjunto], [cor7, setimoconjunto], [cor8, oitavoconjunto]];
+                var armazenaindicedoarray = []
+                var array = []
+                var tamanho;
+
+                if (player) {
+                    for (let x = 0; x < todososconjuntos.length; x++) {
+                        // console.log(todososconjuntos[x])
+                        // for(let y=0;y<todososconjuntos[x].length;y++){
+                        // console.log(todososconjuntos[x][0])
+
+                        if (todososconjuntos[x][0] == cores2[cors2]) {
+                            armazenaindicedoarray.push(todososconjuntos[x])
+
+                            console.log("Cor encontrada");
+
+
+                            // break; // Interrompe o loop interno
+                        }
+                        for (let h = 0; h < armazenaindicedoarray.length; h++) {
+                            // console.log(armazenaindicedoarray[h][1])
+                            tamanho = armazenaindicedoarray[h][1];
+                            for (let i = 0; i < tamanho.length; i++) {
+                                /*console.log(tamanho[0])
+                                console.log(tamanho[1])
+                                console.log(tamanho[2])
+                                console.log(tamanho[3])*/
+                                if (player.posx >= tamanho[0] &&
+                                    player.posx <= tamanho[0] + tamanho[2] &&
+                                    player.posy >= tamanho[1] &&
+                                    player.posy <= tamanho[1] + tamanho[3]) {
+                                    //   trueorfalse = true;
+                                    console.log("Você está em cima")
+                                    emcima2 = true
+                                } else {
+                                    console.log("Pise no bloco correto")
+                                    emcima2 = false
+                                }
+                                //  break;
+                            }
+                            // array.push(armazenaindicedoarray[h][1])
+                        }
+
+
+
+
+                    }
+                }
+
+            }
+
+            function terceiroMapa() {
+
+
+                var bloco50em500largura = canvas.width / 10;
+
+
+                var primeiroconjunto = [0, 0, bloco50em500largura, canvas.height]
+                var segundoconjunto = [50, 0, bloco50em500largura, canvas.height]
+                var terceiroconjunto = [100, 0, bloco50em500largura, canvas.height]
+                var quartoconjunto = [150, 0, bloco50em500largura, canvas.height]
+                var quintoconjunto = [200, 0, bloco50em500largura, canvas.height]
+                var sextoconjunto = [250, 0, bloco50em500largura, canvas.height]
+                var setimoconjunto = [300, 0, bloco50em500largura, canvas.height]
+                var oitavoconjunto = [350, 0, bloco50em500largura, canvas.height]
+                var nonoconjunto = [400, 0, bloco50em500largura, canvas.height]
+                var decimoconjunto = [450, 0, bloco50em500largura, canvas.height]
+
+                // console.log("Largura " + divideheight4)
+
+                var cor1 = cores3[0];
+                cpx.fillStyle = cor1;
+                cpx.fillRect(primeiroconjunto[0], primeiroconjunto[1], primeiroconjunto[2], primeiroconjunto[3]);
+
+                var cor2 = cores3[1];
+                cpx.fillStyle = cor2;
+                cpx.fillRect(segundoconjunto[0], segundoconjunto[1], segundoconjunto[2], segundoconjunto[3]);
+
+                var cor3 = cores3[2];
+                cpx.fillStyle = cor3;
+                cpx.fillRect(terceiroconjunto[0], terceiroconjunto[1], terceiroconjunto[2], terceiroconjunto[3]);
+
+                var cor4 = cores3[3];
+                cpx.fillStyle = cor4;
+                cpx.fillRect(quartoconjunto[0], quartoconjunto[1], quartoconjunto[2], quartoconjunto[3]);
+
+                var cor5 = cores3[4];
+                cpx.fillStyle = cor5;
+                cpx.fillRect(quintoconjunto[0], quintoconjunto[1], quintoconjunto[2], quintoconjunto[3]);
+
+                var cor6 = cores3[5];
+                cpx.fillStyle = cor6;
+                cpx.fillRect(sextoconjunto[0], sextoconjunto[1], sextoconjunto[2], sextoconjunto[3]);
+
+                var cor7 = cores3[6];
+                cpx.fillStyle = cor7;
+                cpx.fillRect(setimoconjunto[0], setimoconjunto[1], setimoconjunto[2], setimoconjunto[3]);
+
+                var cor8 = cores3[7];
+                cpx.fillStyle = cor8;
+                cpx.fillRect(oitavoconjunto[0], oitavoconjunto[1], oitavoconjunto[2], oitavoconjunto[3]);
+
+                var cor9 = cores3[8];
+                cpx.fillStyle = cor9;
+                cpx.fillRect(nonoconjunto[0], nonoconjunto[1], nonoconjunto[2], nonoconjunto[3]);
+
+                var cor10 = cores3[9];
+                cpx.fillStyle = cor10;
+                cpx.fillRect(decimoconjunto[0], decimoconjunto[1], decimoconjunto[2], decimoconjunto[3]);
+
+
+                if (player) {
+                    player.draw();
+                }
+
+
+                var todososconjuntos = [[cor1, primeiroconjunto], [cor2, segundoconjunto], [cor3, terceiroconjunto], [cor4, quartoconjunto], [cor5, quintoconjunto],
+                [cor6, sextoconjunto], [cor7, setimoconjunto], [cor8, oitavoconjunto], [cor9, nonoconjunto], [cor10, decimoconjunto]];
+                var armazenaindicedoarray = []
+                var array = []
+                var tamanho;
+                // console.log(player.posx)
+                // console.log(player.posy)
+                if (player) {
+                    for (let x = 0; x < todososconjuntos.length; x++) {
+                        // console.log(todososconjuntos[x])
+                        // for(let y=0;y<todososconjuntos[x].length;y++){
+                        // console.log(todososconjuntos[x][0])
+
+                        if (todososconjuntos[x][0] == cores3[cors3]) {
+                            armazenaindicedoarray.push(todososconjuntos[x])
+
+                            console.log("Cor encontrada");
+
+
+                            // break; // Interrompe o loop interno
+                        }
+                        for (let h = 0; h < armazenaindicedoarray.length; h++) {
+                            // console.log(armazenaindicedoarray[h][1])
+                            tamanho = armazenaindicedoarray[h][1];
+                            for (let i = 0; i < tamanho.length; i++) {
+                                /*console.log(tamanho[0])
+                                console.log(tamanho[1])
+                                console.log(tamanho[2])
+                                console.log(tamanho[3])*/
+                                if (player.posx >= tamanho[0] &&
+                                    player.posx <= tamanho[0] + tamanho[2] &&
+                                    player.posy >= tamanho[1] &&
+                                    player.posy <= tamanho[1] + tamanho[3]) {
+                                    //   trueorfalse = true;
+                                    console.log("Você está em cima")
+                                    emcima3 = true
+                                }
+
+                                //  break;
+                            }
+                            if (!emcima3) {
+
+                                console.log("Pise no Bloco correto")
+                            }
+                        }
+
+                        // array.push(armazenaindicedoarray[h][1])
+                    }
+
+
+
+
+                }
+            }
+
+
+
+
+            function quartoMapa() {
+
+                var dividewithem2 = canvaswidth / 2;
+                var divideheight2 = canvasheight / 2;
+
+                var dividewidthem4 = dividewithem2 / 2;
+
+                var divideheight5 = divideheight2 / 5;
+                var dividewidthem5 = dividewithem2 / 5;
+
+                var divideheight4 = divideheight2 / 2;
+
+
+                var primeiroconjunto = [0, 0, dividewidthem5, canvas.height]
+                var segundoconjunto = [0, 0, canvas.width, divideheight5]
+                var terceiroconjunto = [0, 450, canvas.width, divideheight5]
+                var quartoconjunto = [450, 0, dividewidthem5, canvas.height]
+                var quintoconjunto = [50, 50, dividewidthem5, 400]
+                var sextoconjunto = [50, 50, 400, divideheight5]
+                var setimoconjunto = [400, 50, dividewidthem5, 400]
+                var oitavoconjunto = [50, 400, 400, divideheight5]
+                var nonoconjunto = [100, 350, 300, divideheight5]
+                var decimoconjunto = [100, 100, 300, divideheight5]
+                var decimoprimeiro = [100, 100, dividewidthem5, 300]
+                var decimosegundo = [350, 100, dividewidthem5, 300]
+                var decimoterceiro = [150, 300, 200, divideheight5]
+                var decimoquarto = [150, 150, dividewidthem5, 200]
+                var decimoquinto = [150, 150, 200, divideheight5]
+                var decimosexto = [300, 150, dividewidthem5, 200]
+                var decimosetimo = [200, 200, 100, 100]
+
+
+
+
+
+
+                var cor1 = "#6A5ACD"
+                cpx.fillStyle = cor1;
+                cpx.fillRect(primeiroconjunto[0], primeiroconjunto[1], primeiroconjunto[2], primeiroconjunto[3]);
+
+
+                cpx.fillStyle = cor1;
+                cpx.fillRect(segundoconjunto[0], segundoconjunto[1], segundoconjunto[2], segundoconjunto[3]);
+
+
+                cpx.fillStyle = cor1;
+                cpx.fillRect(terceiroconjunto[0], terceiroconjunto[1], terceiroconjunto[2], terceiroconjunto[3]);
+
+                cpx.fillStyle = cor1;
+                cpx.fillRect(quartoconjunto[0], quartoconjunto[1], quartoconjunto[2], quartoconjunto[3]);
+
+
+
+                var cor2 = "#836FFF"
+                cpx.fillStyle = cor2;
+                cpx.fillRect(quintoconjunto[0], quintoconjunto[1], quintoconjunto[2], quintoconjunto[3]);
+
+                cpx.fillStyle = cor2;
+                cpx.fillRect(sextoconjunto[0], sextoconjunto[1], sextoconjunto[2], sextoconjunto[3]);
+
+
+                cpx.fillStyle = cor2;
+                cpx.fillRect(setimoconjunto[0], setimoconjunto[1], setimoconjunto[2], setimoconjunto[3]);
+
+
+                cpx.fillStyle = cor2;
+                cpx.fillRect(oitavoconjunto[0], oitavoconjunto[1], oitavoconjunto[2], oitavoconjunto[3]);
+
+
+                var cor3 = "#FF0202"
+                cpx.fillStyle = cor3;
+                cpx.fillRect(nonoconjunto[0], nonoconjunto[1], nonoconjunto[2], nonoconjunto[3]);
+
+
+                cpx.fillStyle = cor3;
+                cpx.fillRect(decimoconjunto[0], decimoconjunto[1], decimoconjunto[2], decimoconjunto[3]);
+
+
+                cpx.fillStyle = cor3;
+                cpx.fillRect(decimoprimeiro[0], decimoprimeiro[1], decimoprimeiro[2], decimoprimeiro[3]);
+
+                cpx.fillStyle = cor3;
+                cpx.fillRect(decimosegundo[0], decimosegundo[1], decimosegundo[2], decimosegundo[3]);
+
+
+                var cor4 = "#5b4fad"
+                cpx.fillStyle = cor4;
+                cpx.fillRect(decimoterceiro[0], decimoterceiro[1], decimoterceiro[2], decimoterceiro[3]);
+
+                cpx.fillStyle = cor4;
+                cpx.fillRect(decimoquarto[0], decimoquarto[1], decimoquarto[2], decimoquarto[3]);
+
+
+                cpx.fillStyle = cor4;
+                cpx.fillRect(decimoquinto[0], decimoquinto[1], decimoquinto[2], decimoquinto[3]);
+
+
+
+                cpx.fillStyle = cor4;
+                cpx.fillRect(decimosexto[0], decimosexto[1], decimosexto[2], decimosexto[3]);
+
+                var cor5 = "#FF0404"
+                cpx.fillStyle = cor5;
+                cpx.fillRect(decimosetimo[0], decimosetimo[1], decimosetimo[2], decimosetimo[3]);
+
+
+
+
+
+                // console.log("Altura " + dividewidthem4)
+                // console.log("Largura " + divideheight4)
+
+
+                if (player) {
+                    player.draw();
+                }
+
+                var todososconjuntos = [[cor1, primeiroconjunto], [cor1, segundoconjunto], [cor1, terceiroconjunto], [cor1, quartoconjunto], [cor2, quintoconjunto], [cor2, sextoconjunto], [cor2, setimoconjunto], [cor2, oitavoconjunto], [cor3, nonoconjunto], [cor3, decimoconjunto], [cor3, decimoprimeiro], [cor3, decimosegundo],
+                [cor4, decimoterceiro], [cor4, decimoquarto], [cor4, decimoquinto], [cor4, decimosexto], [cor5, decimosetimo]
+                ];
+                var armazenaindicedoarray = []
+                var array = []
+                var tamanho;
+                // console.log(player.posx)
+                // console.log(player.posy)
+
+
+                if (player) {
+                    for (let x = 0; x < todososconjuntos.length; x++) {
+                        // console.log(todososconjuntos[x])
+                        // for(let y=0;y<todososconjuntos[x].length;y++){
+                        // console.log(todososconjuntos[x][0])
+
+                        if (todososconjuntos[x][0] == cores4[cors4]) {
+                            armazenaindicedoarray.push(todososconjuntos[x])
+
+                            console.log("Cor encontrada");
+
+
+                            // break; // Interrompe o loop interno
+                        }
+                        for (let h = 0; h < armazenaindicedoarray.length; h++) {
+                            // console.log(armazenaindicedoarray[h][1])
+                            tamanho = armazenaindicedoarray[h][1];
+                            for (let i = 0; i < tamanho.length; i++) {
+                                /*console.log(tamanho[0])
+                                console.log(tamanho[1])
+                                console.log(tamanho[2])
+                                console.log(tamanho[3])*/
+                                if (player.posx >= tamanho[0] &&
+                                    player.posx <= tamanho[0] + tamanho[2] &&
+                                    player.posy >= tamanho[1] &&
+                                    player.posy <= tamanho[1] + tamanho[3]) {
+                                    //   trueorfalse = true;
+                                    console.log("Você está em cima")
+                                    emcima4 = true
+                                }
+                                if (emcima4 != true) {
+                                    console.log("Pise no Bloco Correto")
+                                }
+
+                                //  break;
+                            }
+                            // array.push(armazenaindicedoarray[h][1])
+                        }
+
+
+
+
+                    }
+                }
+
+            }
+
+
+            function corParaPisar() {
+                contador3++;
+                if (contador3 == 1) {
+                    cor = Math.floor(Math.random() * cores.length)
+
+                    exibecor.innerHTML = "<h2>" + cores[cor] + "</h2>";
+                    exibecor.style.display = "block"
+                }
+                if (contador3 == 2) {
+                    cors2 = Math.floor(Math.random() * cores2.length)
+                    exibecor.innerHTML = "<h2>" + cores2[cors2] + "</h2>";
+                }
+
+                if (contador3 == 3) {
+                    cors3 = Math.floor(Math.random() * cores3.length)
+                    exibecor.innerHTML = "<h2>" + cores3[cors3] + "</h2>"
+                }
+                if (contador3 == 4) {
+                    cors4 = Math.floor(Math.random() * cores4.length)
+                    exibecor.innerHTML = "<h2>" + cores4[cors4] + "</h2>"
+                }
+
+
+            }
+
+
+            function caixaDeCor() {
+                contadorr++;
+                if (contadorr == 1) {
+                    inputColor.style.backgroundColor = cores[cor]
+                    inputColor.style.display = "block"
+                }
+
+                if (contadorr == 2) {
+                    inputColor.style.backgroundColor = cores2[cors2]
+                    inputColor.style.display = "block"
+                }
+                if (contadorr == 3) {
+                    inputColor.style.backgroundColor = cores3[cors3]
+                    inputColor.style.display = "block"
+                }
+                if (contadorr == 4) {
+                    inputColor.style.backgroundColor = cores4[cors4]
+                    inputColor.style.display = "block"
+                }
+
+            }
+
+            var musicas = ["media/lady-gaga-bad-romance-instrumental-prod-by-redonemp3-160k_UjP0mJIP.mp3", "media/doja-cat-streets-instrumental-mp3-160k_YGvNjBEV.mp3", "media/need-to-know-instrumentalmp3-160k_YjCOQKuf.mp3", "media/lana-del-rey-cherry-instrumentalmp3-160k_yPHAkyp8.mp3"]
+
+
+
+            function derrota() {
+                if (player) {
+                    alert("Você perdeu")
+                }
+            }
+
+            var contadordafasee = document.getElementById('contadordafase')
+            var contador = 0;
+            var detectaMapa;
+            var contadordafase = 21;
+            var contadordafase2 = 15;
+            var contadordafase3 = 10;
+            var contadordafase4 = 5;
+
+            function exibirDataEHora() {
+                var date = new Date();
+
+                date.setSeconds(contador)
+                // console.log(date.getSeconds())
+                contador++;
+
+
+
+
+                if (date.getSeconds() >= 0 && date.getSeconds() <= 20) {
+
+
+                    if (date.getSeconds() == 0) {
+                        audio1.src = musicas[0];
+                        audio1.play()
+                    }
+                    contadordafasee.style.color = "white"
+                    contadordafase--;
+                    contadordafasee.innerHTML = "TEMPO: " + contadordafase;
+
+                    if (contadordafase < 6) {
+                        contadordafasee.style.color = "red"
+                    }
+                    if (date.getSeconds() == 1) {
+                        corParaPisar()
+                        caixaDeCor();
+
+
+                    }
+
+                    if (date.getSeconds() == 20 && emcima != true) {
+                        derrota();
+                        player = null
+
+
+                    }
+                    cpx.fillRect(0, 0, 500, 500)
+                    primeiroMapa();
+
+
+
+
+                }
+
+
+                if (date.getSeconds() > 20 && date.getDate() <= 36) {
+                    contadordafasee.style.color = "white"
+                    contadordafase2--;
+                    contadordafasee.innerHTML = "TEMPO: " + contadordafase2;
+                    if (contadordafase2 < 6) {
+                        contadordafasee.style.color = "red"
+                    }
+                    if (date.getSeconds() == 21) {
+                        corParaPisar()
+                        caixaDeCor();
+                        audio1.src = musicas[2];
+                        audio1.play()
+
+                    }
+                    if (date.getSeconds() == 36 && emcima2 != true) {
+                        derrota()
+                        player = null
+
+
+                    }
+                    cpx.clearRect(0, 0, 500, 500)
+                    segundoMapa();
+
+
+
+
+
+
+                }
+
+                if (date.getSeconds() > 35 && date.getSeconds() <= 45) {
+                    contadordafasee.style.color = "white"
+                    contadordafase3--;
+                    contadordafasee.innerHTML = "TEMPO: " + contadordafase3;
+                    if (contadordafase3 < 6) {
+                        contadordafasee.style.color = "red"
+                    }
+                    if (date.getSeconds() == 36) {
+                        corParaPisar()
+                        caixaDeCor();
+                        audio1.src = musicas[3];
+                        audio1.play()
+
+                    }
+
+                    if (date.getSeconds() == 45 && emcima3 != true) {
+                        derrota()
+                        player = null
+
+
+                    }
+                    cpx.clearRect(0, 0, 500, 500)
+                    terceiroMapa();
+
+
+                }
+                if (date.getSeconds() > 45 && date.getSeconds() <= 51) {
+
+                    contadordafasee.style.color = "white"
+                    contadordafase4--;
+                    contadordafasee.innerHTML = "TEMPO: " + contadordafase4;
+
+                    if (contadordafase4 < 6) {
+                        contadordafasee.style.color = "red"
+                    }
+                    if (date.getSeconds() == 46) {
+                        corParaPisar()
+                        caixaDeCor();
+                        audio1.src = musicas[1];
+                        audio1.play()
+                    }
+
+                    if (date.getSeconds() == 51 && emcima4 != true) {
+                        derrota()
+                        player = null
+
+
+                    }
+
+                    cpx.clearRect(0, 0, 500, 500);
+
+                    quartoMapa();
+
+
+
+
+                    if (date.getSeconds() == 51 && emcima4 == true) {
+                        alert("Você ganhou")
+                        window.location.href = "index.html";
+
+
+                    }
+                }
+
+            }
+
+
+
+            // console.log(selecionado)
+            var skins = document.getElementById('skins')
+            function confirmou() {
+                setInterval(exibirDataEHora, 1000);
+                telaDeSelecao.style.display = "none"
+                skins.style.display = "none"
+                canvas.style.display = "block"
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>

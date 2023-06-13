@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    background-color: rgb(139, 139, 196);
+    width: 100%;
+}
+
+
+
+
+input {
+    width: 100px;
+    height: 100px;
+} 
+
+
+.campo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 40px
+
+
+
+}
+
+input {
+    font-size: 120px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: violet;
+}
+
+
+.registrar {
+    background-color: rgb(88, 96, 202);
+    border-radius: 15px;
+    width: 400px;
+    margin: 0 auto;
+    color: white;
+}
+
+.jogo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: 0 auto;
+
+}
+
+
+
+.pontos {
+    background-color: green;
+    width: 30%;
+ 
+}
+
+input {}
+
+h1{
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 50px;
+}
+
+.ponto{
+    margin: 0 auto;
+}
+body{
+    text-align: center;
+    color: white;
+    background-color:#2F4F4F;
+}
+

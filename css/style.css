@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Candal&family=Chivo+Mono:wght@100&family=Climate+Crisis&family=Lalezar&family=Poppins:wght@200&family=Roboto&family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Libre+Baskerville&family=PT+Sans&family=Press+Start+2P&family=Roboto+Slab:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Bungee+Spice&family=Candal&family=Chivo+Mono:wght@100&family=Climate+Crisis&family=Frijole&family=Lalezar&family=Poppins:wght@200&family=Roboto&family=Tilt+Warp&family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Bungee+Spice&family=Candal&family=Chivo+Mono:wght@100&family=Climate+Crisis&family=Lalezar&family=Poppins:wght@200&family=Roboto&family=Tilt+Warp&family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Bungee+Spice&family=Candal&family=Chivo+Mono:wght@100&family=Climate+Crisis&family=Lalezar&family=Poppins:wght@200&family=Roboto&family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee&family=Candal&family=Chivo+Mono:wght@100&family=Climate+Crisis&family=Lalezar&family=Poppins:wght@200&family=Roboto&family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Libre+Baskerville&family=PT+Sans&family=Press+Start+2P&family=Roboto+Slab:wght@100&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: chartreuse;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: purple;
+}
+
+header {
+    background-color: #2F4F4F;
+    padding: 50px;
+    font-size: 20px;
+
+}
+
+footer {
+    background-color: #2F4F4F;
+    padding: 50px;
+    font-size: 20px;
+}
+
+main {
+    background-color: #000;
+    padding: 20px;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+
+}
+
+#skins {
+    padding-bottom: 20px;
+}
+
+#idCanvas {
+    background-color: rgb(32, 207, 207);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.bodinho {
+    background-color: #2F4F4F;
+
+}
+
+.personagem {
+    width: 50px;
+    height: 50px;
+}
+
+
+.cor {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    color: WHITE;
+
+}
+
+.cores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+
+
+
+}
+
+.telaDeSelecao {
+    background-color: #2F4F4F;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    border: 1px solid white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+.skin {
+    width: 80px;
+    height: 80px;
+    background-color: black;
+    border: 1px solid white;
+
+}
+
+
+h2 {
+    color: white;
+    text-align: center;
+
+}
+
+#img2 {
+    cursor: pointer;
+}
+
+img {
+    border: 1px solid black;
+}
+
+#inputColor {
+    background-color: white;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    display: none;
+    border: 1px solid white;
+}
+
+button {
+    width: 70px;
+    height: 40px;
+    font-size: 10px;
+    border: solid black;
+    border-radius: 4px;
+
+}
+
+.personagens {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.glow-on-hover {
+    font-family: 'Bungee', cursive;
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.elementosheader {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#pg {
+    text-align: start;
+}
+
+.tempo {
+    color: white;
+}
+
+.coresnome {
+    display: flex;
+}
+
+#myAudio {
+    display: none;
+}
+
+#musica {
+    background-color: #5b4fad;
+}
+
+
+.enblobablocos {
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    background-color: #2F4F4F;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.bloco {
+    width: 200px;
+    background-color: red;
+    padding: 30px;
+}
+
+.imagembloco {
+    width: 100%;
+}
+
+#mainhome {
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+body {}
+
+.bg-custom {
+    background-color: #CCCCCC;
+    color: #008080;
+}
+
+header {
+    background-color: #2F4F4F;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+
+#plataformagamer {
+    font-family: 'Bungee Spice', cursive;
+
+    font-size: 50px;
+}
+
+a {
+    font-size: 20px;
+
+}
+
+.navbarzinha {
+    display: flex;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#nameAnimation {
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+footer {
+    background-color: #2F4F4F;
+}
+
+
+.navbar .navbar-nav .nav-link {
+    color: #ed9121;
+    font-family: 'Ultra', serif;
+    justify-content: center;
+    /* Substitua pelo código de cor desejado */
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #008080;
+}
+
+
+.conteudomain {
+    margin: 0 auto;
+
+    background-color: white;
+    width: 70%;
+    padding: 50px;
+    color: black;
+
+
+
+    font-family: 'Frijole', cursive;
+}
+
+.filmes {
+    font-family: 'Frijole', cursive;
+    background-color: #2F4F4F;
+    border-radius: 15px;
+    padding: 10px;
+    border: solid black;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.texto {
+    background-color: #2F4F4F;
+    font-size: 23px;
+    color: white;
+    border-radius: 15px;
+    border: solid black;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.filme {
+
+    color: #008080;
+}
+
+.moveubtton {
+    padding-top: 10px;
+    text-align: center;
+}
+
+footer {
+    font-family: 'Ultra', serif;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.custom-brand {
+    display: none;
+
+
+}
+
+.custom-toggler .navbar-toggler-icon {
+
+    /* Altere para a cor desejada */
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cline stroke='white' stroke-width='2' stroke-linecap='round' x1='3' y1='12' x2='27' y2='12'/%3E%3Cline stroke='white' stroke-width='2' stroke-linecap='round' x1='3' y1='18' x2='27' y2='18'/%3E%3Cline stroke='white' stroke-width='2' stroke-linecap='round' x1='3' y1='24' x2='27' y2='24'/%3E%3C/svg%3E");
+}
+
+#palavra {
+    width: 100%;
+}
+
+#palavra::placeholder {
+    color: rgb(134, 119, 119);
+}
+
+
+.enblobablocos {
+    background-color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bloco {
+    width: 100%;
+    padding: 20px;
+    border: none;
+
+
+}
+
+.textosdosjogos {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.imagembloco1 {
+    width: 40%;
+    height: 200px;
+    outline: none;
+    padding-top: 20px;
+
+}
+
+.primeirapartebloco {
+    width: 50%;
+    padding: 20px;
+}
+
+.bloco {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.tforca {
+    text-align: start;
+    background-color: #2F4F4F;
+    font-size: 23px;
+    color: white;
+    border-radius: 15px;
+    border: solid black;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Ultra', serif;
+}
+
+@media screen and (max-width: 600px) {
+    .bloco {
+        flex-direction: column;
+    }
+
+    .primeirapartebloco {
+        width: 100%;
+    }
+
+    .imagembloco1 {
+        width: 100%;
+        height: auto;
+    }
+}
+
+hr{
+    border: 1px solid black;
+    display: block;
+   color: #000;
+}
+
+#plataformagamer{
+    text-align: start;
+}
+
+body{
+    background-color: #2F4F4F;
+   
+}
+
+main{
+    background-color: black;
+    width: 100%;
+    
+}
+
+  /* Reduz a margem da navbar para economizar espaço vertical */
+  .navbar {
+    margin-bottom: 0;
+}
+
+/* Adapta o tamanho do texto para telas menores */
+
+
+/* Ajusta o tamanho do canvas para ocupar a largura máxima */
+#idCanvas {
+    width: 400px;
+    height: 400px;
+}
+
+#telaDeSelecao{
+    width: 400px;
+    height: 600px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.skins{
+    font-size: 20px;
+}
+
+.enblobablocos {
+    max-width: 1200px; /* Defina o valor desejado para a largura máxima */
+    margin: 0 auto; /* Centraliza a div horizontalmente */
+}
+
+.imagembloco,
+.imagembloco1 {
+    border: none;
+}
+
+
+footer{
+    padding: 20px;
+}

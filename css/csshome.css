@@ -1,0 +1,120 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos do header */
+header {
+    background-color: #333;
+    padding: 20px;
+}
+
+.elementosheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.elementosheader h2 {
+    color: white;
+    margin: 0;
+}
+
+.top {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.top li a {
+    color: white;
+    text-decoration: none;
+}
+
+.top li a:hover {
+    color: #f2f2f2;
+}
+
+/* Estilos do conteúdo principal */
+.enblobablocos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.bloco1,
+.bloco2 {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bloco1 h2,
+.bloco2 h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.imagembloco1,
+.imagembloco2 {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos do footer */
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    margin: 0;
+}
+
+/* Estilos específicos para site gamer */
+.bodinho {
+    background-color: #000;
+}
+
+.enblobablocos {
+    background-color: #222;
+}
+
+.bloco1,
+.bloco2 {
+    border: 2px solid #f2f2f2;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.bloco1 h2,
+.bloco2 h2 {
+    font-size: 24px;
+}
+
+footer p {
+    font-size: 14px;
+}
