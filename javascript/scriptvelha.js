@@ -182,7 +182,7 @@ for (let x = 0; x < espacos.length; x++) {
         contaJogadas++;
 
         // Verificação de empate
-        if (contaJogadas === espacos.length && !ganhou) {
+        if (contaJogadas == 9 && !ganhou) {
             alert("Empate!");
             espacos[0].value = ""
             espacos[1].value = ""
