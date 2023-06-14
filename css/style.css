@@ -546,4 +546,7 @@ main{
 footer{
     padding: 20px;
 }
+#img3,#img4{
+    height: 200px;
+}
 
