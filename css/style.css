@@ -546,3 +546,7 @@ main{
 footer{
     padding: 20px;
 }
+
+#img{
+    width: 35%;
+}
