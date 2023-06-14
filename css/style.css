@@ -533,7 +533,7 @@ main{
 }
 
 .enblobablocos {
-    max-width: 1250px; /* Defina o valor desejado para a largura máxima */
+    max-width: 1200px; /* Defina o valor desejado para a largura máxima */
     margin: 0 auto; /* Centraliza a div horizontalmente */
 }
 
